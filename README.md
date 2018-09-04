@@ -22,3 +22,9 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+
+rails generate scaffold TipoUsuario nombre:string
+
+rails generate scaffold Usuario nombres:string apellidos:string email:string contrasenha:string
