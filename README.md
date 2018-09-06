@@ -58,6 +58,7 @@ add_reference :usuarios, :tipo_usuario, foreign_key: true
 create_table :clientes do |t|
     t.string :nombre
     t.string :telefono
+    t.text :comentarios
 
     t.timestamps
 end
@@ -77,7 +78,7 @@ create_table :direccion_obras do |t|
     t.string :barrio
     t.string :zona
     t.string :ciudad
-    t.string :observaciones
+    t.text :observaciones
 
     t.timestamps
 end
@@ -104,9 +105,12 @@ create_table :obras do |t|
     t.boolean :viguetes
     t.boolean :caseton
     t.string :foto
+    t.decimal :latitud
+    t.decimal :longitud
 
     t.timestamps
 end
+
 add_reference :obras, :cliente, foreign_key: true
 add_reference :obras, :estado_obra, foreign_key: true
 add_reference :obras, :direccion_obra, foreign_key: true
