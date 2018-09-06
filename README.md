@@ -64,36 +64,16 @@ create_table :clientes do |t|
 end
 add_reference :clientes, :usuario, foreign_key: true
 
+<!-- posibles tablas auxiliares -->
 create_table :estado_obras do |t|
-    t.string :nombre
-    t.datetime :proxima_visita
-    t.string :nota
-
-    t.timestamps
 end
-
 create_table :direccion_obras do |t|
-    t.string :calle
-    t.string :numero
-    t.string :barrio
-    t.string :zona
-    t.string :ciudad
-    t.text :observaciones
-
-    t.timestamps
 end
-
 create_table :cierre_obras do |t|
-    t.boolean :ganado
-    t.string :adjudicado
-    t.string :motivo
-    t.string :comentarios
-    t.string :contrato
-
-    t.timestamps
 end
 
 create_table :obras do |t|
+    <!-- Datos generales -->
     t.string :nombre_encargado
     t.string :telefono_encargado
     t.string :nombre_contratista
@@ -105,8 +85,29 @@ create_table :obras do |t|
     t.boolean :viguetes
     t.boolean :caseton
     t.string :foto
+
+    <!-- Estado  -->
+    t.string :nombre
+    t.datetime :proxima_visita
+    t.string :nota
+
+    <!-- Direccion -->
+    t.string :calle
+    t.string :numero
+    t.string :barrio
+    t.string :zona
+    t.string :ciudad
     t.decimal :latitud
     t.decimal :longitud
+    t.text :observaciones
+
+    <!-- Cierre -->
+    t.boolean :ganado
+    t.string :adjudicado
+    t.string :motivo
+    t.string :comentarios
+    t.string :contrato
+    t.datetime :fecha_cierre
 
     t.timestamps
 end
@@ -115,3 +116,14 @@ add_reference :obras, :cliente, foreign_key: true
 add_reference :obras, :estado_obra, foreign_key: true
 add_reference :obras, :direccion_obra, foreign_key: true
 add_reference :obras, :cierre_obra, foreign_key: true
+
+bin/rails generate scaffold TipoUsuario tipo:string
+
+
+bin/rails generate scaffold Usuario nombres:string apellidos:string email:string contrasenha:string tipo_usuario:references
+
+
+bin/rails generate scaffold Cliente nombre:string telefono:string comentario:text usuario:references
+
+
+bin/rails generate scaffold Obra nombre_encargado:string telefono_encargado:string nombre_contratista:string telefono_contratista:string nombre_propietario:string telefono_propietario:string superficie_aproximada:string comentarios:string viguetes:boolean caseton:boolean foto:string nombre:string proxima_visita:datetime nota:string calle:string numero:string barrio:string zona:string ciudad:string latitud:decimal longitud:decimal observaciones:text ganado:boolean adjudicado:string motivo:string comentarios:string contrato:string fecha_cierre:datetime  cliente:references

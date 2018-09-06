@@ -1,0 +1,83 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Obras</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre encargado</th>
+      <th>Telefono encargado</th>
+      <th>Nombre contratista</th>
+      <th>Telefono contratista</th>
+      <th>Nombre propietario</th>
+      <th>Telefono propietario</th>
+      <th>Superficie aproximada</th>
+      <th>Comentarios</th>
+      <th>Viguetes</th>
+      <th>Caseton</th>
+      <th>Foto</th>
+      <th>Nombre</th>
+      <th>Proxima visita</th>
+      <th>Nota</th>
+      <th>Calle</th>
+      <th>Numero</th>
+      <th>Barrio</th>
+      <th>Zona</th>
+      <th>Ciudad</th>
+      <th>Latitud</th>
+      <th>Longitud</th>
+      <th>Observaciones</th>
+      <th>Ganado</th>
+      <th>Adjudicado</th>
+      <th>Motivo</th>
+      <th>Comentarios</th>
+      <th>Contrato</th>
+      <th>Fecha cierre</th>
+      <th>Cliente</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @obras.each do |obra| %>
+      <tr>
+        <td><%= obra.nombre_encargado %></td>
+        <td><%= obra.telefono_encargado %></td>
+        <td><%= obra.nombre_contratista %></td>
+        <td><%= obra.telefono_contratista %></td>
+        <td><%= obra.nombre_propietario %></td>
+        <td><%= obra.telefono_propietario %></td>
+        <td><%= obra.superficie_aproximada %></td>
+        <td><%= obra.comentarios %></td>
+        <td><%= obra.viguetes %></td>
+        <td><%= obra.caseton %></td>
+        <td><%= obra.foto %></td>
+        <td><%= obra.nombre %></td>
+        <td><%= obra.proxima_visita %></td>
+        <td><%= obra.nota %></td>
+        <td><%= obra.calle %></td>
+        <td><%= obra.numero %></td>
+        <td><%= obra.barrio %></td>
+        <td><%= obra.zona %></td>
+        <td><%= obra.ciudad %></td>
+        <td><%= obra.latitud %></td>
+        <td><%= obra.longitud %></td>
+        <td><%= obra.observaciones %></td>
+        <td><%= obra.ganado %></td>
+        <td><%= obra.adjudicado %></td>
+        <td><%= obra.motivo %></td>
+        <td><%= obra.comentarios %></td>
+        <td><%= obra.contrato %></td>
+        <td><%= obra.fecha_cierre %></td>
+        <td><%= obra.cliente %></td>
+        <td><%= link_to 'Show', obra %></td>
+        <td><%= link_to 'Edit', edit_obra_path(obra) %></td>
+        <td><%= link_to 'Destroy', obra, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Obra', new_obra_path %>

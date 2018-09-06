@@ -1,0 +1,162 @@
+<%= form_with(model: obra, local: true) do |form| %>
+  <% if obra.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(obra.errors.count, "error") %> prohibited this obra from being saved:</h2>
+
+      <ul>
+      <% obra.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre_encargado %>
+    <%= form.text_field :nombre_encargado %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telefono_encargado %>
+    <%= form.text_field :telefono_encargado %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nombre_contratista %>
+    <%= form.text_field :nombre_contratista %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telefono_contratista %>
+    <%= form.text_field :telefono_contratista %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nombre_propietario %>
+    <%= form.text_field :nombre_propietario %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telefono_propietario %>
+    <%= form.text_field :telefono_propietario %>
+  </div>
+
+  <div class="field">
+    <%= form.label :superficie_aproximada %>
+    <%= form.text_field :superficie_aproximada %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comentarios %>
+    <%= form.text_field :comentarios %>
+  </div>
+
+  <div class="field">
+    <%= form.label :viguetes %>
+    <%= form.check_box :viguetes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :caseton %>
+    <%= form.check_box :caseton %>
+  </div>
+
+  <div class="field">
+    <%= form.label :foto %>
+    <%= form.text_field :foto %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :proxima_visita %>
+    <%= form.datetime_select :proxima_visita %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nota %>
+    <%= form.text_field :nota %>
+  </div>
+
+  <div class="field">
+    <%= form.label :calle %>
+    <%= form.text_field :calle %>
+  </div>
+
+  <div class="field">
+    <%= form.label :numero %>
+    <%= form.text_field :numero %>
+  </div>
+
+  <div class="field">
+    <%= form.label :barrio %>
+    <%= form.text_field :barrio %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zona %>
+    <%= form.text_field :zona %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ciudad %>
+    <%= form.text_field :ciudad %>
+  </div>
+
+  <div class="field">
+    <%= form.label :latitud %>
+    <%= form.text_field :latitud %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitud %>
+    <%= form.text_field :longitud %>
+  </div>
+
+  <div class="field">
+    <%= form.label :observaciones %>
+    <%= form.text_area :observaciones %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ganado %>
+    <%= form.check_box :ganado %>
+  </div>
+
+  <div class="field">
+    <%= form.label :adjudicado %>
+    <%= form.text_field :adjudicado %>
+  </div>
+
+  <div class="field">
+    <%= form.label :motivo %>
+    <%= form.text_field :motivo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comentarios %>
+    <%= form.text_field :comentarios %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contrato %>
+    <%= form.text_field :contrato %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha_cierre %>
+    <%= form.datetime_select :fecha_cierre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cliente_id %>
+    <%= form.text_field :cliente_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

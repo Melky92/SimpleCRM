@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_06_174953) do
+ActiveRecord::Schema.define(version: 2018_09_06_222931) do
 
   create_table "clientes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nombre"
@@ -20,6 +20,40 @@ ActiveRecord::Schema.define(version: 2018_09_06_174953) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["usuario_id"], name: "index_clientes_on_usuario_id"
+  end
+
+  create_table "obras", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nombre_encargado"
+    t.string "telefono_encargado"
+    t.string "nombre_contratista"
+    t.string "telefono_contratista"
+    t.string "nombre_propietario"
+    t.string "telefono_propietario"
+    t.string "superficie_aproximada"
+    t.string "comentarios"
+    t.boolean "viguetes"
+    t.boolean "caseton"
+    t.string "foto"
+    t.string "nombre"
+    t.datetime "proxima_visita"
+    t.string "nota"
+    t.string "calle"
+    t.string "numero"
+    t.string "barrio"
+    t.string "zona"
+    t.string "ciudad"
+    t.decimal "latitud", precision: 10
+    t.decimal "longitud", precision: 10
+    t.text "observaciones"
+    t.boolean "ganado"
+    t.string "adjudicado"
+    t.string "motivo"
+    t.string "contrato"
+    t.datetime "fecha_cierre"
+    t.bigint "cliente_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cliente_id"], name: "index_obras_on_cliente_id"
   end
 
   create_table "tipo_usuarios", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -40,5 +74,6 @@ ActiveRecord::Schema.define(version: 2018_09_06_174953) do
   end
 
   add_foreign_key "clientes", "usuarios"
+  add_foreign_key "obras", "clientes"
   add_foreign_key "usuarios", "tipo_usuarios"
 end

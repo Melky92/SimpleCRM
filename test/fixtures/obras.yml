@@ -1,0 +1,63 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre_encargado: MyString
+  telefono_encargado: MyString
+  nombre_contratista: MyString
+  telefono_contratista: MyString
+  nombre_propietario: MyString
+  telefono_propietario: MyString
+  superficie_aproximada: MyString
+  comentarios: MyString
+  viguetes: false
+  caseton: false
+  foto: MyString
+  nombre: MyString
+  proxima_visita: 2018-09-06 18:29:31
+  nota: MyString
+  calle: MyString
+  numero: MyString
+  barrio: MyString
+  zona: MyString
+  ciudad: MyString
+  latitud: 9.99
+  longitud: 9.99
+  observaciones: MyText
+  ganado: false
+  adjudicado: MyString
+  motivo: MyString
+  comentarios: MyString
+  contrato: MyString
+  fecha_cierre: 2018-09-06 18:29:31
+  cliente: one
+
+two:
+  nombre_encargado: MyString
+  telefono_encargado: MyString
+  nombre_contratista: MyString
+  telefono_contratista: MyString
+  nombre_propietario: MyString
+  telefono_propietario: MyString
+  superficie_aproximada: MyString
+  comentarios: MyString
+  viguetes: false
+  caseton: false
+  foto: MyString
+  nombre: MyString
+  proxima_visita: 2018-09-06 18:29:31
+  nota: MyString
+  calle: MyString
+  numero: MyString
+  barrio: MyString
+  zona: MyString
+  ciudad: MyString
+  latitud: 9.99
+  longitud: 9.99
+  observaciones: MyText
+  ganado: false
+  adjudicado: MyString
+  motivo: MyString
+  comentarios: MyString
+  contrato: MyString
+  fecha_cierre: 2018-09-06 18:29:31
+  cliente: two

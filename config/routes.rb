@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :obras
   resources :clientes
   resources :usuarios
   resources :tipo_usuarios
