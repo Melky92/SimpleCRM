@@ -40,7 +40,7 @@ rails generate scaffold Usuario nombres:string apellidos:string email:string con
 
 
 create_table :tipo_usuarios do |t|
-    t.string :nombre
+    t.string :tipo
 
     t.timestamps
 end
