@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(version: 2018_09_06_222931) do
     t.string "barrio"
     t.string "zona"
     t.string "ciudad"
-    t.decimal "latitud", precision: 10
-    t.decimal "longitud", precision: 10
+    t.decimal "latitud", precision: 10, scale: 6
+    t.decimal "longitud", precision: 10, scale: 6
     t.text "observaciones"
     t.boolean "ganado"
     t.string "adjudicado"

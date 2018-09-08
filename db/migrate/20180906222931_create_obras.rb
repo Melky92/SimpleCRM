@@ -20,8 +20,8 @@ class CreateObras < ActiveRecord::Migration[5.2]
       t.string :barrio
       t.string :zona
       t.string :ciudad
-      t.decimal :latitud
-      t.decimal :longitud
+      t.decimal :latitud, :precision => 10, :scale => 6
+      t.decimal :longitud, :precision => 10, :scale => 6
       t.text :observaciones
       t.boolean :ganado
       t.string :adjudicado
