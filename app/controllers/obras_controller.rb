@@ -5,7 +5,7 @@ class ObrasController < ApplicationController
   # GET /obras
   # GET /obras.json
   def index
-    @obras = Obra.all
+    @obras = Obra.all.order(:created_at).reverse_order
   end
 
   # GET /obras/1
@@ -40,7 +40,7 @@ class ObrasController < ApplicationController
     nueva_obra[:foto] = img_file
 
     @obra = Obra.new(nueva_obra)
-
+    
     respond_to do |format|
       if @obra.save
         format.html { redirect_to @obra, notice: 'Obra was successfully created.' }
