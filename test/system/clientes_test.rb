@@ -12,21 +12,21 @@ class ClientesTest < ApplicationSystemTestCase
 
   test "creating a Cliente" do
     visit clientes_url
-    click_on "New Cliente"
+    click_on "Nuevo Cliente"
 
     fill_in "Comentarios", with: @cliente.comentarios
     fill_in "Nombre", with: @cliente.nombre
     fill_in "Telefono", with: @cliente.telefono
     fill_in "Usuario", with: @cliente.usuario_id
-    click_on "Create Cliente"
+    click_on "Nuevo Cliente"
 
     assert_text "Cliente was successfully created"
-    click_on "Back"
+    click_on "Volver"
   end
 
   test "updating a Cliente" do
     visit clientes_url
-    click_on "Edit", match: :first
+    click_on "Editar", match: :first
 
     fill_in "Comentarios", with: @cliente.comentarios
     fill_in "Nombre", with: @cliente.nombre
@@ -35,13 +35,13 @@ class ClientesTest < ApplicationSystemTestCase
     click_on "Update Cliente"
 
     assert_text "Cliente was successfully updated"
-    click_on "Back"
+    click_on "Volver"
   end
 
   test "destroying a Cliente" do
     visit clientes_url
     page.accept_confirm do
-      click_on "Destroy", match: :first
+      click_on "Eliminar", match: :first
     end
 
     assert_text "Cliente was successfully destroyed"

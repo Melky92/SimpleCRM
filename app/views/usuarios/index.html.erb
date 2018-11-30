@@ -21,10 +21,9 @@
         <td><%= usuario.apellidos %></td>
         <td><%= usuario.email %></td>
         <td><%= usuario.contrasenha %></td>
-        <td><%= usuario.tipo_usuario %></td>
-        <td><%= link_to 'Show', usuario %></td>
-        <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
-        <td><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', usuario %></td>
+        <td><%= link_to 'Editar', edit_usuario_path(usuario) %></td>
+        <td><%= link_to 'Eliminar', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +31,4 @@
 
 <br>
 
-<%= link_to 'New Usuario', new_usuario_path %>
+<%= link_to 'Nuevo Usuario', new_usuario_path %>

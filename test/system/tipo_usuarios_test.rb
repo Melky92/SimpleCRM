@@ -18,24 +18,24 @@ class TipoUsuariosTest < ApplicationSystemTestCase
     click_on "Create Tipo usuario"
 
     assert_text "Tipo usuario was successfully created"
-    click_on "Back"
+    click_on "Volver"
   end
 
   test "updating a Tipo usuario" do
     visit tipo_usuarios_url
-    click_on "Edit", match: :first
+    click_on "Editar", match: :first
 
     fill_in "Tipo", with: @tipo_usuario.tipo
     click_on "Update Tipo usuario"
 
     assert_text "Tipo usuario was successfully updated"
-    click_on "Back"
+    click_on "Volver"
   end
 
   test "destroying a Tipo usuario" do
     visit tipo_usuarios_url
     page.accept_confirm do
-      click_on "Destroy", match: :first
+      click_on "Eliminar", match: :first
     end
 
     assert_text "Tipo usuario was successfully destroyed"

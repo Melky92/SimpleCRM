@@ -12,7 +12,7 @@ class ObrasTest < ApplicationSystemTestCase
 
   test "creating a Obra" do
     visit obras_url
-    click_on "New Obra"
+    click_on "Nueva Obra"
 
     fill_in "Adjudicado", with: @obra.adjudicado
     fill_in "Barrio", with: @obra.barrio
@@ -45,12 +45,12 @@ class ObrasTest < ApplicationSystemTestCase
     click_on "Create Obra"
 
     assert_text "Obra was successfully created"
-    click_on "Back"
+    click_on "Volver"
   end
 
   test "updating a Obra" do
     visit obras_url
-    click_on "Edit", match: :first
+    click_on "Editar", match: :first
 
     fill_in "Adjudicado", with: @obra.adjudicado
     fill_in "Barrio", with: @obra.barrio
@@ -83,13 +83,13 @@ class ObrasTest < ApplicationSystemTestCase
     click_on "Update Obra"
 
     assert_text "Obra was successfully updated"
-    click_on "Back"
+    click_on "Volver"
   end
 
   test "destroying a Obra" do
     visit obras_url
     page.accept_confirm do
-      click_on "Destroy", match: :first
+      click_on "Eliminar", match: :first
     end
 
     assert_text "Obra was successfully destroyed"

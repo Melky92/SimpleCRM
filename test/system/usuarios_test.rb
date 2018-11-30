@@ -12,7 +12,7 @@ class UsuariosTest < ApplicationSystemTestCase
 
   test "creating a Usuario" do
     visit usuarios_url
-    click_on "New Usuario"
+    click_on "Nuevo Usuario"
 
     fill_in "Apellidos", with: @usuario.apellidos
     fill_in "Contrasenha", with: @usuario.contrasenha
@@ -22,12 +22,12 @@ class UsuariosTest < ApplicationSystemTestCase
     click_on "Create Usuario"
 
     assert_text "Usuario was successfully created"
-    click_on "Back"
+    click_on "Volver"
   end
 
   test "updating a Usuario" do
     visit usuarios_url
-    click_on "Edit", match: :first
+    click_on "Editar", match: :first
 
     fill_in "Apellidos", with: @usuario.apellidos
     fill_in "Contrasenha", with: @usuario.contrasenha
@@ -37,13 +37,13 @@ class UsuariosTest < ApplicationSystemTestCase
     click_on "Update Usuario"
 
     assert_text "Usuario was successfully updated"
-    click_on "Back"
+    click_on "Volver"
   end
 
   test "destroying a Usuario" do
     visit usuarios_url
     page.accept_confirm do
-      click_on "Destroy", match: :first
+      click_on "Eliminar", match: :first
     end
 
     assert_text "Usuario was successfully destroyed"
