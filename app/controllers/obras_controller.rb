@@ -24,7 +24,21 @@ class ObrasController < ApplicationController
   # POST /obras
   # POST /obras.json
   def create
-    @obra = Obra.new(obra_params)
+    header, data = obra_params[:foto].split(',')
+    img_type = header.match(/image\/([a-z]{1,11});/)[1]
+    img_file = "obra_" + DateTime.now.strftime("%Y%m%dT%H%M%S") + ".jpg"
+    path = "/srv/obras-scz/imagenes/"
+    File.open(img_file, 'w:binary') do |f|
+      f.write(Base64.decode64(data))
+    end
+    # File.open("mi_foto4.jpg", "w+") do |f|
+    #   f.write( Base64.decode64(obra_params[:foto])  ) 
+    # end
+
+    nueva_obra = obra_params_sin_foto
+    nueva_obra[:foto] = img_file
+
+    @obra = Obra.new(nueva_obra)
 
     respond_to do |format|
       if @obra.save
@@ -70,5 +84,9 @@ class ObrasController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def obra_params
       params.require(:obra).permit(:nombre_encargado, :telefono_encargado, :nombre_contratista, :telefono_contratista, :nombre_propietario, :telefono_propietario, :superficie_aproximada, :comentarios, :viguetes, :caseton, :foto, :nombre, :proxima_visita, :nota, :calle, :numero, :barrio, :zona, :ciudad, :latitud, :longitud, :observaciones, :ganado, :adjudicado, :motivo, :comentarios, :contrato, :fecha_cierre, :cliente_id)
+    end
+
+    def obra_params_sin_foto
+      params.require(:obra).permit(:nombre_encargado, :telefono_encargado, :nombre_contratista, :telefono_contratista, :nombre_propietario, :telefono_propietario, :superficie_aproximada, :comentarios, :viguetes, :caseton, :nombre, :proxima_visita, :nota, :calle, :numero, :barrio, :zona, :ciudad, :latitud, :longitud, :observaciones, :ganado, :adjudicado, :motivo, :comentarios, :contrato, :fecha_cierre, :cliente_id)
     end
 end

@@ -142,8 +142,12 @@
 
 <p>
   <strong>Cliente:</strong>
-  <%= @obra.cliente %>
+  <%= if @obra.cliente then @obra.cliente.nombre else "---" end %>
 </p>
 
-<%= link_to 'Edit', edit_obra_path(@obra) %> |
-<%= link_to 'Back', obras_path %>
+<p>
+  <a href= <%= "/ver_imagen/" + @obra.foto %> >Ver Foto</a>
+</p>
+
+<%= link_to 'Editar', edit_obra_path(@obra) %> |
+<%= link_to 'Volver', obras_path %>
