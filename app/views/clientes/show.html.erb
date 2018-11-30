@@ -17,7 +17,7 @@
 
 <p>
   <strong>Usuario:</strong>
-  <%= @cliente.usuario %>
+  <%= @cliente.usuario.nombres + " " + @cliente.usuario.apellidos  %>
 </p>
 
 <%= link_to 'Editar', edit_cliente_path(@cliente) %> |
