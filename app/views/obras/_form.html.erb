@@ -153,7 +153,9 @@
 
   <div class="field">
     <%= form.label :cliente_id %>
-    <%= form.text_field :cliente_id %>
+    <!-- %= form.text_field :cliente_id % -->
+    <%= form.select :cliente_id, options_from_collection_for_select(Cliente.all, :id, :nombre, @obra.cliente_id) %>
+  
   </div>
 
   <div class="actions">
