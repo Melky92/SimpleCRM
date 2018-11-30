@@ -12,7 +12,7 @@ class TipoUsuariosTest < ApplicationSystemTestCase
 
   test "creating a Tipo usuario" do
     visit tipo_usuarios_url
-    click_on "New Tipo Usuario"
+    click_on "Nuevo Tipo Usuario"
 
     fill_in "Tipo", with: @tipo_usuario.tipo
     click_on "Create Tipo usuario"
