@@ -28,7 +28,7 @@ class ObrasController < ApplicationController
     img_type = header.match(/image\/([a-z]{1,11});/)[1]
     img_file = "obra_" + DateTime.now.strftime("%Y%m%dT%H%M%S") + ".jpg"
     path = "/srv/obras-scz/imagenes/"
-    File.open(img_file, 'w:binary') do |f|
+    File.open(path + img_file, 'w:binary') do |f|
       f.write(Base64.decode64(data))
     end
     # File.open("mi_foto4.jpg", "w+") do |f|
