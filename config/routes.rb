@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   resources :usuarios
   resources :tipo_usuarios
   get 'obras_ganadas', to: 'obras#index'
-  get 'obras_sin_adjudicar', to: 'obras#index'
+  get 'obras_sin_vendedor', to: 'obras#index'
   get 'obras_nuevas', to: 'obras#index'
-  get 'obras_sin_cliente', to: 'obras#index'
+  get 'obras_perdidas', to: 'obras#index'
   post '/sign_in', to: 'auth#sign_in'
   get '/ver_imagen/:filename' => 'imagenes#ver'
   root 'usuarios#index'

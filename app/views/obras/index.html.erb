@@ -7,12 +7,12 @@ if (request.fullpath == "/obras") then
   mostrar_todo = true
 elsif (request.fullpath == "/obras_ganadas") then
   mostrar_ganadas = true
-elsif (request.fullpath == "/obras_sin_adjudicar") then
-  mostrar_sin_adjudicar = true
+elsif (request.fullpath == "/obras_perdidas") then
+  mostrar_perdidas = true
 elsif (request.fullpath == "/obras_nuevas") then
   mostrar_nuevas = true
-elsif (request.fullpath == "/obras_sin_cliente") then
-  mostrar_sin_cliente = true
+elsif (request.fullpath == "/obras_sin_vendedor") then
+  mostrar_sin_vendedor = true
 end
 %>
 
@@ -90,9 +90,9 @@ end
       <% 
       if 
         (mostrar_ganadas && obra.ganado) ||
-        (mostrar_sin_adjudicar && obra.adjudicado.blank? ) ||
+        (mostrar_perdidas && !obra.ganado ) ||
         (mostrar_nuevas && ( Date.today - 7 <= obra.created_at ) ) ||
-        (mostrar_sin_cliente && !obra.cliente) ||
+        (mostrar_sin_vendedor && !obra.cliente) ||
         mostrar_todo
       then
       %>
