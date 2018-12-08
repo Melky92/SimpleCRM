@@ -7,8 +7,8 @@ class ObrasController < ApplicationController
   def index
     @obras = Obra.all.order(:created_at).reverse_order
     respond_to do |format|
-      format.html { @usuarios }
-      format.json { render json: @usuarios, include: ['cliente','usuario'] }
+      format.html { @obras }
+      format.json { render json: @obras, include: ['cliente','usuario'] }
     end
   end
 

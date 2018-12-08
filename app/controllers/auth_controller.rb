@@ -4,10 +4,10 @@ class AuthController < ApplicationController
         puts request
         mi_usuario = params.require(:usuario).permit(:email, :contrasenha)
         puts "buscando usuario: " + mi_usuario[:email]
-        usuario = Usuario.includes(:cliente).where( email: mi_usuario[:email] ).first
+        usuario = Usuario.where( email: mi_usuario[:email] ).first
         if usuario then
             if usuario.contrasenha == mi_usuario[:contrasenha] then
-                render json: usuario, include: 'cliente', status: 200
+                render json: usuario, status: 200
             else
                 render plain: "contraseña incorrecta", status: 401
             end
