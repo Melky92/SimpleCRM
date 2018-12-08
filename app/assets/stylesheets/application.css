@@ -13,3 +13,41 @@
  *= require_tree .
  *= require_self
  */
+
+html, body{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-bottom:1px solid black;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 4px;
+  border-left:1px solid black;
+  border-right:1px solid black;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color:#00529E;
+  color: white;
+}
+
+#popup {
+  height: 50px;
+  width: 200px;
+  text-align: center;
+  vertical-align:middle;
+  background-color: cornflowerblue;
+  color: white;
+  display: none;
+  padding-top: 8px;
+  position: absolute;
+}

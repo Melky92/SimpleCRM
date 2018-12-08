@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :clientes
   resources :usuarios
   resources :tipo_usuarios
+  get 'mapa', to: 'obras#map'
   get 'obras_ganadas', to: 'obras#index'
   get 'obras_sin_vendedor', to: 'obras#index'
   get 'obras_nuevas', to: 'obras#index'
