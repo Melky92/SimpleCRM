@@ -21,12 +21,9 @@ end
 <table>
   <thead>
     <tr>
-      <th>Nombre encargado</th>
-      <th>Telefono encargado</th>
-      <th>Nombre contratista</th>
-      <th>Telefono contratista</th>
-      <th>Nombre propietario</th>
-      <th>Telefono propietario</th>
+      <th>Encargado</th>
+      <th>Contratista</th>
+      <th>Propietario</th>
       <th>Comentarios</th>
 
       <% 
@@ -35,9 +32,9 @@ end
         mostrar_todo
       then
       %>
-      <th>Superficie aproximada</th>
+      <th>Superficie</th>
       <th>Viguetes</th>
-      <th>Caseton</th>
+      <th>Casetón</th>
       <% end %>
 
       <!--
@@ -45,12 +42,20 @@ end
       -->
 
       <th>Nombre</th>
-      <th>Proxima visita</th>
-      <th>Nota</th>
+
+      <% 
+      if 
+        (!mostrar_sin_vendedor) ||
+        mostrar_todo
+      then
+      %>
+        <th>Próxima visita</th>
+        <th>Nota</th>
+      <% end %>
       
       <!--
       <th>Calle</th>
-      <th>Numero</th>
+      <th>Número</th>
       <th>Barrio</th>
       <th>Zona</th>
       <th>Ciudad</th>
@@ -70,8 +75,8 @@ end
         mostrar_todo
       then
       %>
-      <th>Adjudicado</th>
-      <th>Motivo de adjudicación</th>
+        <th>Adjudicado</th>
+        <th>Motivo de adjudicación</th>
       <% end %>
 
       <!--
@@ -98,12 +103,21 @@ end
       then
       %>
         <tr>
-          <td><%= obra.nombre_encargado %></td>
-          <td><%= obra.telefono_encargado %></td>
-          <td><%= obra.nombre_contratista %></td>
-          <td><%= obra.telefono_contratista %></td>
-          <td><%= obra.nombre_propietario %></td>
-          <td><%= obra.telefono_propietario %></td>
+          <td>
+            <%= obra.nombre_encargado %>
+            <br>
+            <%= obra.telefono_encargado %>
+          </td>
+          <td>
+            <%= obra.nombre_contratista %>
+            <br>
+            <%= obra.telefono_contratista %>
+          </td>
+          <td>
+            <%= obra.nombre_propietario %>
+            <br>
+            <%= obra.telefono_propietario %>
+          </td>
           <td><%= obra.comentarios %></td>
           
           <% 
@@ -121,8 +135,16 @@ end
           <td><%= obra.foto %></td>
           -->
           <td><%= obra.nombre %></td>
-          <td><%= obra.proxima_visita %></td>
-          <td><%= obra.nota %></td>
+
+          <% 
+          if 
+            (!mostrar_sin_vendedor) ||
+            mostrar_todo
+          then
+          %>
+            <td><%= if obra.proxima_visita then obra.proxima_visita.to_formatted_s(:rfc822) end %></td>
+            <td><%= obra.nota %></td>
+          <% end %>
           <!--
           <td><%= obra.calle %></td>
           <td><%= obra.numero %></td>
