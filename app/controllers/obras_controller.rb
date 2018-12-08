@@ -6,6 +6,10 @@ class ObrasController < ApplicationController
   # GET /obras.json
   def index
     @obras = Obra.all.order(:created_at).reverse_order
+    respond_to do |format|
+      format.html { @usuarios }
+      format.json { render json: @usuarios, include: ['cliente','usuario'] }
+    end
   end
 
   # GET /obras/1
@@ -86,10 +90,10 @@ class ObrasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def obra_params
-      params.require(:obra).permit(:nombre_encargado, :telefono_encargado, :nombre_contratista, :telefono_contratista, :nombre_propietario, :telefono_propietario, :superficie_aproximada, :comentarios, :viguetes, :caseton, :foto, :nombre, :proxima_visita, :nota, :calle, :numero, :barrio, :zona, :ciudad, :latitud, :longitud, :observaciones, :ganado, :adjudicado, :motivo, :comentarios, :contrato, :fecha_cierre, :cliente_id)
+      params.require(:obra).permit(:nombre_encargado, :telefono_encargado, :nombre_contratista, :telefono_contratista, :nombre_propietario, :telefono_propietario, :superficie_aproximada, :comentarios, :viguetes, :caseton, :foto, :nombre, :proxima_visita, :nota, :calle, :numero, :barrio, :zona, :ciudad, :latitud, :longitud, :observaciones, :ganado, :adjudicado, :motivo, :comentarios, :contrato, :fecha_cierre, :cliente_id, :usuario_id)
     end
 
     def obra_params_sin_foto
-      params.require(:obra).permit(:nombre_encargado, :telefono_encargado, :nombre_contratista, :telefono_contratista, :nombre_propietario, :telefono_propietario, :superficie_aproximada, :comentarios, :viguetes, :caseton, :nombre, :proxima_visita, :nota, :calle, :numero, :barrio, :zona, :ciudad, :latitud, :longitud, :observaciones, :ganado, :adjudicado, :motivo, :comentarios, :contrato, :fecha_cierre, :cliente_id)
+      params.require(:obra).permit(:nombre_encargado, :telefono_encargado, :nombre_contratista, :telefono_contratista, :nombre_propietario, :telefono_propietario, :superficie_aproximada, :comentarios, :viguetes, :caseton, :nombre, :proxima_visita, :nota, :calle, :numero, :barrio, :zona, :ciudad, :latitud, :longitud, :observaciones, :ganado, :adjudicado, :motivo, :comentarios, :contrato, :fecha_cierre, :cliente_id, :usuario_id)
     end
 end

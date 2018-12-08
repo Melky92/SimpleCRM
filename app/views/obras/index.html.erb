@@ -80,6 +80,7 @@ end
       <th>Fecha cierre</th>
       -->
 
+      <th>Vendedor</th>
       <th>Cliente</th>
       <th colspan="3"></th>
     </tr>
@@ -151,6 +152,7 @@ end
           <td><%= obra.contrato %></td>
           <td><%= obra.fecha_cierre %></td>
           -->
+          <td><%= if obra.usuario then obra.usuario.nombre_completo else "---" end  %></td>
           <td><%= if obra.cliente then obra.cliente.nombre else "---" end %></td>
           <td><%= link_to 'Mostrar', obra %></td>
           <td><%= link_to 'Editar', edit_obra_path(obra) %></td>

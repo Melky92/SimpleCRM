@@ -4,11 +4,10 @@ class UsuariosController < ApplicationController
   # GET /usuarios
   # GET /usuarios.json
   def index
-    @usuarios = Usuario.includes(:cliente)
-    puts '@usuarios'
+    @usuarios = Usuario.all
     respond_to do |format|
       format.html { @usuarios }
-      format.json { render json: @usuarios, include: 'cliente' }
+      format.json { render json: @usuarios}
     end
   end
 

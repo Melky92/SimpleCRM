@@ -10,16 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_06_222931) do
+ActiveRecord::Schema.define(version: 2018_12_06_235853) do
 
   create_table "clientes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nombre"
     t.string "telefono"
     t.text "comentarios"
-    t.bigint "usuario_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["usuario_id"], name: "index_clientes_on_usuario_id"
   end
 
   create_table "obras", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -53,7 +51,9 @@ ActiveRecord::Schema.define(version: 2018_09_06_222931) do
     t.bigint "cliente_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "usuario_id"
     t.index ["cliente_id"], name: "index_obras_on_cliente_id"
+    t.index ["usuario_id"], name: "index_obras_on_usuario_id"
   end
 
   create_table "tipo_usuarios", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 2018_09_06_222931) do
     t.index ["tipo_usuario_id"], name: "index_usuarios_on_tipo_usuario_id"
   end
 
-  add_foreign_key "clientes", "usuarios"
   add_foreign_key "obras", "clientes"
+  add_foreign_key "obras", "usuarios"
   add_foreign_key "usuarios", "tipo_usuarios"
 end

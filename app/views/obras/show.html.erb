@@ -146,6 +146,12 @@
 </p>
 
 <p>
+  <strong>Usuario:</strong>
+  <%= if @obra.usuario then @obra.usuario.nombre_completo else "---" end %>
+</p>
+
+<p>
+  <% if @obra.foto then %>
   <a href= <%= "/ver_imagen/" + @obra.foto %> >Ver Foto</a>
 </p>
 
