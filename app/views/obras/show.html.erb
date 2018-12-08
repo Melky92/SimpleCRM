@@ -152,7 +152,8 @@
 
 <p>
   <% if @obra.foto then %>
-  <a href= <%= "/ver_imagen/" + @obra.foto %> >Ver Foto</a>
+    <a href= <%= "/ver_imagen/" + @obra.foto %> >Ver Foto</a>
+  <% end %>
 </p>
 
 <%= link_to 'Editar', edit_obra_path(@obra) %> |
