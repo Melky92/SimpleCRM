@@ -1,5 +1,6 @@
 class AuthController < ApplicationController
     skip_before_action :verify_authenticity_token
+
     def sign_in
         puts request
         mi_usuario = params.require(:usuario).permit(:nombre_de_usuario, :contrasenha)
@@ -24,5 +25,9 @@ class AuthController < ApplicationController
         # end
         # render :show, status: :created
 
+    end
+
+    def privacy
+        render :privacy, layout: false
     end
 end

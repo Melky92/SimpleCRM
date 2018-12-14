@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   post '/sign_in', to: 'auth#sign_in'
   get '/ver_imagen/:filename' => 'imagenes#ver'
   get '/icono/:id' => 'imagenes#icono'
+  get '/privacy' => 'auth#privacy'
   root 'usuarios#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
