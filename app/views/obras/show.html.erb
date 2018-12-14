@@ -151,7 +151,7 @@
 </p>
 
 <p>
-  <% if @obra.foto then %>
+  <% if @obra.foto && @obra.foto.length > 4 then %>
     <a href= <%= "/ver_imagen/" + @obra.foto %> >Ver Foto</a>
   <% end %>
 </p>
