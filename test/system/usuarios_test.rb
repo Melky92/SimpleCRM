@@ -17,11 +17,12 @@ class UsuariosTest < ApplicationSystemTestCase
     fill_in "Apellidos", with: @usuario.apellidos
     fill_in "Contrasenha", with: @usuario.contrasenha
     fill_in "Email", with: @usuario.email
+    fill_in "Nombre de Usuario", with: @usuario.nombre_de_usuario
     fill_in "Nombres", with: @usuario.nombres
     fill_in "Tipo Usuario", with: @usuario.tipo_usuario_id
     click_on "Create Usuario"
 
-    assert_text "Usuario was successfully created"
+    assert_text "Usuario fue creado exitosamente"
     click_on "Volver"
   end
 
@@ -32,11 +33,12 @@ class UsuariosTest < ApplicationSystemTestCase
     fill_in "Apellidos", with: @usuario.apellidos
     fill_in "Contrasenha", with: @usuario.contrasenha
     fill_in "Email", with: @usuario.email
+    fill_in "Nombre de Usuario", with: @usuario.nombre_de_usuario
     fill_in "Nombres", with: @usuario.nombres
     fill_in "Tipo Usuario", with: @usuario.tipo_usuario_id
     click_on "Update Usuario"
 
-    assert_text "Usuario was successfully updated"
+    assert_text "Usuario fue modificado existosamente"
     click_on "Volver"
   end
 
@@ -46,6 +48,6 @@ class UsuariosTest < ApplicationSystemTestCase
       click_on "Eliminar", match: :first
     end
 
-    assert_text "Usuario was successfully destroyed"
+    assert_text "Usuario fue eliminado existosamente"
   end
 end

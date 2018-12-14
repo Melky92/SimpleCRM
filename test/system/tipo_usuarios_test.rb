@@ -17,7 +17,7 @@ class TipoUsuariosTest < ApplicationSystemTestCase
     fill_in "Tipo", with: @tipo_usuario.tipo
     click_on "Create Tipo usuario"
 
-    assert_text "Tipo usuario was successfully created"
+    assert_text "Tipo usuario fue creado exitosamente"
     click_on "Volver"
   end
 
@@ -28,7 +28,7 @@ class TipoUsuariosTest < ApplicationSystemTestCase
     fill_in "Tipo", with: @tipo_usuario.tipo
     click_on "Update Tipo usuario"
 
-    assert_text "Tipo usuario was successfully updated"
+    assert_text "Tipo usuario fue modificado existosamente"
     click_on "Volver"
   end
 
@@ -38,6 +38,6 @@ class TipoUsuariosTest < ApplicationSystemTestCase
       click_on "Eliminar", match: :first
     end
 
-    assert_text "Tipo usuario was successfully destroyed"
+    assert_text "Tipo usuario fue eliminado existosamente"
   end
 end

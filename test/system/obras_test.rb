@@ -44,7 +44,7 @@ class ObrasTest < ApplicationSystemTestCase
     fill_in "Zona", with: @obra.zona
     click_on "Create Obra"
 
-    assert_text "Obra was successfully created"
+    assert_text "Obra fue creado exitosamente"
     click_on "Volver"
   end
 
@@ -82,7 +82,7 @@ class ObrasTest < ApplicationSystemTestCase
     fill_in "Zona", with: @obra.zona
     click_on "Update Obra"
 
-    assert_text "Obra was successfully updated"
+    assert_text "Obra fue modificado existosamente"
     click_on "Volver"
   end
 
@@ -92,6 +92,6 @@ class ObrasTest < ApplicationSystemTestCase
       click_on "Eliminar", match: :first
     end
 
-    assert_text "Obra was successfully destroyed"
+    assert_text "Obra fue eliminado existosamente"
   end
 end

@@ -20,7 +20,7 @@ class ClientesTest < ApplicationSystemTestCase
     fill_in "Usuario", with: @cliente.usuario_id
     click_on "Nuevo Cliente"
 
-    assert_text "Cliente was successfully created"
+    assert_text "Cliente fue creado exitosamente"
     click_on "Volver"
   end
 
@@ -34,7 +34,7 @@ class ClientesTest < ApplicationSystemTestCase
     fill_in "Usuario", with: @cliente.usuario_id
     click_on "Update Cliente"
 
-    assert_text "Cliente was successfully updated"
+    assert_text "Cliente fue modificado existosamente"
     click_on "Volver"
   end
 
@@ -44,6 +44,6 @@ class ClientesTest < ApplicationSystemTestCase
       click_on "Eliminar", match: :first
     end
 
-    assert_text "Cliente was successfully destroyed"
+    assert_text "Cliente fue eliminado existosamente"
   end
 end
