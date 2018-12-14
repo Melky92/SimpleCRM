@@ -26,7 +26,7 @@
                 lng: <%= obra.longitud %>
               },
               map: map,
-              url: "obras/<%= obra.id %>",
+              url: "/obras/<%= obra.id %>",
               title: "<%= if obra.usuario then obra.usuario.nombre_completo else 'Sin Usuario' end %>",
               icon: "/icono/" + <%= if obra.usuario then obra.usuario.id else 0 end %>
           });
