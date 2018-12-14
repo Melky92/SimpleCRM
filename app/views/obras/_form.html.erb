@@ -154,14 +154,14 @@
   <div class="field">
     <%= form.label :cliente_id %>
     <!-- %= form.text_field :cliente_id % -->
-    <%= form.select :cliente_id, options_from_collection_for_select(Cliente.all, :id, :nombre, @obra.cliente_id) %>
+    <%= form.select :cliente_id, options_from_collection_for_select(Cliente.all, :id, :nombre, @obra.cliente_id) , :include_blank => true %>
   
   </div>
 
   <div class="field">
     <%= form.label :usuario_id %>
     <!-- %= form.text_field :usuario_id % -->
-    <%= form.select :usuario_id, options_from_collection_for_select(Usuario.all, :id, :nombre_completo, @obra.usuario_id) %>
+    <%= form.select :usuario_id, options_from_collection_for_select(Usuario.all, :id, :nombre_completo, @obra.usuario_id) , :include_blank => true %>
   </div>
 
   <div class="actions">

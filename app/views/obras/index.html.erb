@@ -2,7 +2,7 @@
 
 <h1>Obras</h1>
 
-<% 
+<%
 if (request.fullpath == "/obras") then
   mostrar_todo = true
   ruta_mapa = "obras/mapa/todas"
@@ -28,6 +28,7 @@ end
 <table>
   <thead>
     <tr>
+      <th>Id</th>
       <th>Encargado</th>
       <th>Contratista</th>
       <th>Propietario</th>
@@ -100,88 +101,89 @@ end
 
   <tbody>
     <% @obras.each do |obra| %>
-        <tr>
-          <td>
-            <%= obra.nombre_encargado %>
-            <br>
-            <%= obra.telefono_encargado %>
-          </td>
-          <td>
-            <%= obra.nombre_contratista %>
-            <br>
-            <%= obra.telefono_contratista %>
-          </td>
-          <td>
-            <%= obra.nombre_propietario %>
-            <br>
-            <%= obra.telefono_propietario %>
-          </td>
-          <td><%= obra.comentarios %></td>
-          
-          <% 
-          if 
-            (!mostrar_ganadas) ||
-            mostrar_todo
-          then
-          %>
-          <td><%= obra.superficie_aproximada %></td>
-          <td><%= if obra.viguetes then "Sí" else "No" end %></td>
-          <td><%= if obra.caseton then "Sí" else "No" end %></td>
-          <% end %>
+      <tr>
+        <td><%= obra.id %></td>
+        <td>
+          <%= obra.nombre_encargado %>
+          <br>
+          <%= obra.telefono_encargado %>
+        </td>
+        <td>
+          <%= obra.nombre_contratista %>
+          <br>
+          <%= obra.telefono_contratista %>
+        </td>
+        <td>
+          <%= obra.nombre_propietario %>
+          <br>
+          <%= obra.telefono_propietario %>
+        </td>
+        <td><%= obra.comentarios %></td>
+        
+        <% 
+        if 
+          (!mostrar_ganadas) ||
+          mostrar_todo
+        then
+        %>
+        <td><%= obra.superficie_aproximada %></td>
+        <td><%= if obra.viguetes then "Sí" else "No" end %></td>
+        <td><%= if obra.caseton then "Sí" else "No" end %></td>
+        <% end %>
 
-          <!--
-          <td><%= obra.foto %></td>
-          -->
-          <td><%= obra.nombre %></td>
+        <!--
+        <td><%= obra.foto %></td>
+        -->
+        <td><%= obra.nombre %></td>
 
-          <% 
-          if 
-            (!mostrar_sin_vendedor) ||
-            mostrar_todo
-          then
-          %>
-            <td><%= if obra.proxima_visita then obra.proxima_visita.to_formatted_s(:rfc822) end %></td>
-            <td><%= obra.nota %></td>
-          <% end %>
-          <!--
-          <td><%= obra.calle %></td>
-          <td><%= obra.numero %></td>
-          <td><%= obra.barrio %></td>
-          <td><%= obra.zona %></td>
-          <td><%= obra.ciudad %></td>
-          <td><%= obra.latitud %></td>
-          <td><%= obra.longitud %></td>
-          -->
-          <td><%= obra.observaciones %></td>
-          <!--
-          <td><%= obra.ganado %></td>
-          -->
+        <% 
+        if 
+          (!mostrar_sin_vendedor) ||
+          mostrar_todo
+        then
+        %>
+          <td><%= if obra.proxima_visita then obra.proxima_visita.to_formatted_s(:rfc822) end %></td>
+          <td><%= obra.nota %></td>
+        <% end %>
+        <!--
+        <td><%= obra.calle %></td>
+        <td><%= obra.numero %></td>
+        <td><%= obra.barrio %></td>
+        <td><%= obra.zona %></td>
+        <td><%= obra.ciudad %></td>
+        <td><%= obra.latitud %></td>
+        <td><%= obra.longitud %></td>
+        -->
+        <td><%= obra.observaciones %></td>
+        <!--
+        <td><%= obra.ganado %></td>
+        -->
 
-          <% 
-          if 
-            (mostrar_ganadas) ||
-            mostrar_todo
-          then
-          %>
-          <td><%= obra.adjudicado %></td>
-          <td><%= obra.motivo %></td>
-          <% end %>
+        <% 
+        if 
+          (mostrar_ganadas) ||
+          mostrar_todo
+        then
+        %>
+        <td><%= obra.adjudicado %></td>
+        <td><%= obra.motivo %></td>
+        <% end %>
 
-          <!--
-          <td><%= obra.comentarios %></td>
-          <td><%= obra.contrato %></td>
-          <td><%= obra.fecha_cierre %></td>
-          -->
-          <td><%= if obra.usuario then obra.usuario.nombre_completo else "---" end  %></td>
-          <td><%= if obra.cliente then obra.cliente.nombre else "---" end %></td>
-          <td><%= link_to 'Mostrar', obra %></td>
-          <td><%= link_to 'Editar', edit_obra_path(obra) %></td>
+        <!--
+        <td><%= obra.comentarios %></td>
+        <td><%= obra.contrato %></td>
+        <td><%= obra.fecha_cierre %></td>
+        -->
+        <td><%= if obra.usuario then obra.usuario.nombre_completo else "---" end  %></td>
+        <td><%= if obra.cliente then obra.cliente.nombre else "---" end %></td>
+        <td><%= link_to 'Mostrar', obra %></td>
+        <td><%= link_to 'Editar', edit_obra_path(obra) %></td>
         <td><%= link_to 'Eliminar', obra, method: :delete, data: { confirm: '¿Está seguro de que desea eliminar?' } %></td>
-        </tr>
-      <% end %>
+      </tr>
+    <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'Nueva Obra', new_obra_path %>
+
