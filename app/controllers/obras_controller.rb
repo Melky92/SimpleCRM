@@ -46,7 +46,7 @@ class ObrasController < ApplicationController
 
   # GET /obras/mapa/sin_vendedor
   def mapa_sin_vendedor
-    @obras = Obra.where(cliente_id: nil)
+    @obras = Obra.where(usuario_id: nil)
     render :map
   end
 
