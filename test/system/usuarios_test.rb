@@ -15,7 +15,7 @@ class UsuariosTest < ApplicationSystemTestCase
     click_on "Nuevo Usuario"
 
     fill_in "Apellidos", with: @usuario.apellidos
-    fill_in "Contrasenha", with: @usuario.contrasenha
+    fill_in "Contraseña", with: @usuario.contrasenha
     fill_in "Email", with: @usuario.email
     fill_in "Nombre de Usuario", with: @usuario.nombre_de_usuario
     fill_in "Nombres", with: @usuario.nombres
@@ -31,7 +31,7 @@ class UsuariosTest < ApplicationSystemTestCase
     click_on "Editar", match: :first
 
     fill_in "Apellidos", with: @usuario.apellidos
-    fill_in "Contrasenha", with: @usuario.contrasenha
+    fill_in "Contraseña", with: @usuario.contrasenha
     fill_in "Email", with: @usuario.email
     fill_in "Nombre de Usuario", with: @usuario.nombre_de_usuario
     fill_in "Nombres", with: @usuario.nombres

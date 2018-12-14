@@ -37,9 +37,9 @@ class ObrasTest < ApplicationSystemTestCase
     fill_in "Observaciones", with: @obra.observaciones
     fill_in "Proxima Visita", with: @obra.proxima_visita
     fill_in "Superficie Aproximada", with: @obra.superficie_aproximada
-    fill_in "Telefono Contratista", with: @obra.telefono_contratista
-    fill_in "Telefono Encargado", with: @obra.telefono_encargado
-    fill_in "Telefono Propietario", with: @obra.telefono_propietario
+    fill_in "Teléfono Contratista", with: @obra.telefono_contratista
+    fill_in "Teléfono Encargado", with: @obra.telefono_encargado
+    fill_in "Teléfono Propietario", with: @obra.telefono_propietario
     fill_in "Viguetes", with: @obra.viguetes
     fill_in "Zona", with: @obra.zona
     click_on "Create Obra"
@@ -75,9 +75,9 @@ class ObrasTest < ApplicationSystemTestCase
     fill_in "Observaciones", with: @obra.observaciones
     fill_in "Proxima Visita", with: @obra.proxima_visita
     fill_in "Superficie Aproximada", with: @obra.superficie_aproximada
-    fill_in "Telefono Contratista", with: @obra.telefono_contratista
-    fill_in "Telefono Encargado", with: @obra.telefono_encargado
-    fill_in "Telefono Propietario", with: @obra.telefono_propietario
+    fill_in "Teléfono Contratista", with: @obra.telefono_contratista
+    fill_in "Teléfono Encargado", with: @obra.telefono_encargado
+    fill_in "Teléfono Propietario", with: @obra.telefono_propietario
     fill_in "Viguetes", with: @obra.viguetes
     fill_in "Zona", with: @obra.zona
     click_on "Update Obra"

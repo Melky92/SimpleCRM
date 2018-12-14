@@ -16,7 +16,7 @@ class ClientesTest < ApplicationSystemTestCase
 
     fill_in "Comentarios", with: @cliente.comentarios
     fill_in "Nombre", with: @cliente.nombre
-    fill_in "Telefono", with: @cliente.telefono
+    fill_in "Teléfono", with: @cliente.telefono
     fill_in "Usuario", with: @cliente.usuario_id
     click_on "Nuevo Cliente"
 
@@ -30,7 +30,7 @@ class ClientesTest < ApplicationSystemTestCase
 
     fill_in "Comentarios", with: @cliente.comentarios
     fill_in "Nombre", with: @cliente.nombre
-    fill_in "Telefono", with: @cliente.telefono
+    fill_in "Teléfono", with: @cliente.telefono
     fill_in "Usuario", with: @cliente.usuario_id
     click_on "Update Cliente"
 
