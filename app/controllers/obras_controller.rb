@@ -12,6 +12,68 @@ class ObrasController < ApplicationController
     end
   end
 
+  def obras_ganadas
+    @obras = Obra.where(ganado: true)
+    render :index
+  end
+
+  def obras_perdidas
+    @obras = Obra.where(ganado: false).where("length(motivo) > 0")
+    render :index
+  end
+
+  def obras_sin_vendedor
+    @obras = Obra.where(cliente_id: nil)
+    render :index
+  end
+
+  def obras_nuevas
+    @obras = Obra.all.order(:created_at).last(10).reverse
+    render :index
+  end
+
+  # GET /obras/mapa/ganadas
+  def mapa_ganadas
+    @obras = Obra.where(ganado: true)
+    render :map
+  end
+
+  # GET /obras/mapa/perdidas
+  def mapa_perdidas
+    @obras = Obra.where(ganado: false).where("length(motivo) > 0")
+    render :map
+  end
+
+  # GET /obras/mapa/sin_vendedor
+  def mapa_sin_vendedor
+    @obras = Obra.where(cliente_id: nil)
+    render :map
+  end
+
+  # GET /obras/mapa/nuevas
+  def mapa_nuevas
+    @obras = Obra.all.order(:created_at).last(10)
+    render :map
+  end
+
+  # GET /obras/mapa
+  def mapa_todas
+    @obras = Obra.all
+    render :map
+  end
+
+  # GET /obras/mapa/:id_usuario
+  def mapa_usuario
+    @obras = Obra.where(usuario_id: params[:id_usuario])
+    render :map
+  end
+
+  # GET /obras/mapa/:id_cliente
+  def mapa_cliente
+    @obras = Obra.where(cliente_id: params[:id_cliente])
+    render :map
+  end
+
   # GET /obras/1
   # GET /obras/1.json
   def show

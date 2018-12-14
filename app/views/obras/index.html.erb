@@ -5,16 +5,23 @@
 <% 
 if (request.fullpath == "/obras") then
   mostrar_todo = true
+  ruta_mapa = "obras/mapa/todas"
 elsif (request.fullpath == "/obras_ganadas") then
   mostrar_ganadas = true
+  ruta_mapa = "obras/mapa/ganadas"
 elsif (request.fullpath == "/obras_perdidas") then
   mostrar_perdidas = true
+  ruta_mapa = "obras/mapa/perdidas"
 elsif (request.fullpath == "/obras_nuevas") then
   mostrar_nuevas = true
+  ruta_mapa = "obras/mapa/nuevas"
 elsif (request.fullpath == "/obras_sin_vendedor") then
   mostrar_sin_vendedor = true
+  ruta_mapa = "obras/mapa/sin_vendedor"
 end
 %>
+
+<%= link_to 'Ver Mapa', ruta_mapa %>
 
 <!--%= "#{mostrar_ganadas}" %-->
 
@@ -93,15 +100,6 @@ end
 
   <tbody>
     <% @obras.each do |obra| %>
-      <% 
-      if 
-        (mostrar_ganadas && obra.ganado) ||
-        (mostrar_perdidas && !obra.ganado ) ||
-        (mostrar_nuevas && ( Date.today - 7 <= obra.created_at ) ) ||
-        (mostrar_sin_vendedor && !obra.cliente) ||
-        mostrar_todo
-      then
-      %>
         <tr>
           <td>
             <%= obra.nombre_encargado %>
