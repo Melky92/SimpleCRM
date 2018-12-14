@@ -23,7 +23,7 @@ class ObrasController < ApplicationController
   end
 
   def obras_sin_vendedor
-    @obras = Obra.where(cliente_id: nil)
+    @obras = Obra.where(usuario_id: nil)
     render :index
   end
 
@@ -100,9 +100,6 @@ class ObrasController < ApplicationController
         f.write(Base64.decode64(data))
       end
     end
-    # File.open("mi_foto4.jpg", "w+") do |f|
-    #   f.write( Base64.decode64(obra_params[:foto])  ) 
-    # end
 
     nueva_obra = obra_params_sin_foto
     nueva_obra[:foto] = img_file
@@ -123,8 +120,23 @@ class ObrasController < ApplicationController
   # PATCH/PUT /obras/1
   # PATCH/PUT /obras/1.json
   def update
+    if(obra_params[:foto] && obra_params[:foto].length > 100) then
+      header, data = obra_params[:foto].split(',')
+      img_type = header.match(/image\/([a-z]{1,11});/)[1]
+      img_file = "obra_" + DateTime.now.strftime("%Y%m%dT%H%M%S") + ".jpg"
+      path = "/srv/obras-scz/imagenes/"
+      File.open(path + img_file, 'w:binary') do |f|
+        f.write(Base64.decode64(data))
+      end
+    end
+
+    nueva_obra = obra_params_sin_foto
+    if img_file then
+      nueva_obra[:foto] = img_file
+    end 
+
     respond_to do |format|
-      if @obra.update(obra_params)
+      if @obra.update(nueva_obra)
         format.html { redirect_to @obra, notice: 'Obra fue modificada existosamente.' }
         format.json { render :show, status: :ok, location: @obra }
       else
