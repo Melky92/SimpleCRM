@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_06_235853) do
+ActiveRecord::Schema.define(version: 2018_12_14_002219) do
 
   create_table "clientes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nombre"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 2018_12_06_235853) do
     t.bigint "tipo_usuario_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "nombre_de_usuario"
     t.index ["tipo_usuario_id"], name: "index_usuarios_on_tipo_usuario_id"
   end
 
