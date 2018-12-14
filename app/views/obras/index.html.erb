@@ -178,10 +178,9 @@ end
           <td><%= if obra.cliente then obra.cliente.nombre else "---" end %></td>
           <td><%= link_to 'Mostrar', obra %></td>
           <td><%= link_to 'Editar', edit_obra_path(obra) %></td>
-          <td><%= link_to 'Eliminar', obra, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Eliminar', obra, method: :delete, data: { confirm: '¿Está seguro de que desea eliminar?' } %></td>
         </tr>
       <% end %>
-    <% end %>
   </tbody>
 </table>
 

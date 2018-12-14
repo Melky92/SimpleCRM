@@ -24,7 +24,7 @@
         <td><%= usuario.tipo_usuario.tipo %></td>
         <td><%= link_to 'Mostrar', usuario %></td>
         <td><%= link_to 'Editar', edit_usuario_path(usuario) %></td>
-        <td><%= link_to 'Eliminar', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Eliminar', usuario, method: :delete, data: { confirm: '¿Está seguro de que desea eliminar?' } %></td>
       </tr>
     <% end %>
   </tbody>
