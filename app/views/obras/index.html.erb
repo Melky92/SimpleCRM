@@ -142,7 +142,7 @@ end
           mostrar_todo
         then
         %>
-          <td><%= if obra.proxima_visita then obra.proxima_visita.to_formatted_s(:rfc822) end %></td>
+          <td><%= if obra.proxima_visita then obra.proxima_visita.strftime("%e/%_m/%y %H:%M") end %></td>
           <td><%= obra.nota %></td>
         <% end %>
         <!--

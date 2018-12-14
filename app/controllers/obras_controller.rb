@@ -151,7 +151,7 @@ class ObrasController < ApplicationController
   def destroy
     @obra.destroy
     respond_to do |format|
-      format.html { redirect_to obras_url, notice: 'Obra fue eliminada existosamente.' }
+      format.html { redirect_to "/obras_nuevas", notice: 'Obra fue eliminada existosamente.' }
       format.json { head :no_content }
     end
   end
