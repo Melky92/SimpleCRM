@@ -25,13 +25,19 @@ end
 
 <!--%= "#{mostrar_ganadas}" %-->
 
-<table>
+<% campos = ["Id","Encargado","Contratista","Propietario"] %>
+
+<table id="misObras">
   <thead>
     <tr>
-      <th>Id</th>
-      <th>Encargado</th>
-      <th>Contratista</th>
-      <th>Propietario</th>
+      <% campos.each.with_index do |campo, index| %>
+        <th onclick="showElem(buscar<%= campo %>);">
+          <input style="display: none;" type="text" 
+            id="buscar<%= campo %>" onkeyup="filtrar(buscar<%= campo %>, <%= index %>)">
+          <%= campo %>
+        </th>
+      <% end %>
+
       <th>Comentarios</th>
 
       <% 
@@ -95,7 +101,11 @@ end
 
       <th>Vendedor</th>
       <th>Cliente</th>
-      <th colspan="3"></th>
+      <% if !mostrar_perdidas && !mostrar_ganadas then %>
+        <th colspan="4"></th>
+      <% else %>
+        <th colspan="3"></th>
+      <% end %>
     </tr>
   </thead>
 
@@ -176,6 +186,9 @@ end
         -->
         <td><%= if obra.usuario then obra.usuario.nombre_completo else "---" end  %></td>
         <td><%= if obra.cliente then obra.cliente.nombre else "---" end %></td>
+        <% if !mostrar_perdidas && !mostrar_ganadas then %>
+          <td><%= link_to 'Cerrar', "/obras/" + obra.id.to_s + "/cerrar/" %></td>
+        <% end %>
         <td><%= link_to 'Mostrar', obra %></td>
         <td><%= link_to 'Editar', edit_obra_path(obra) %></td>
         <td><%= link_to 'Eliminar', obra, method: :delete, data: { confirm: '¿Está seguro de que desea eliminar?' } %></td>
@@ -183,6 +196,35 @@ end
     <% end %>
   </tbody>
 </table>
+
+<script>
+  function filtrar(input, col) {
+    var filter, table, tr, td, i, txtValue;
+    filter = input.value.toUpperCase();
+    table = document.getElementById("misObras");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[col];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }       
+    }
+  }
+  function showElem(elem){
+    <% campos.each do |campo| %>
+      document.getElementById("buscar<%= campo %>").style.display = "none";
+      document.getElementById("buscar<%= campo %>").value = "";
+    <% end %>
+    filtrar(elem,0);
+    elem.style.display = "";
+    elem.focus();
+  }
+</script>
 
 <br>
 

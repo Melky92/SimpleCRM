@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'obras/mapa/cliente/:id_cliente', to: 'obras#mapa_cliente'
   get 'obras/mapa/vendedor/:id_usuario', to: 'obras#mapa_usuario'
 
+  get 'obras/:id/cerrar', to: 'obras#cerrar'
+
   resources :obras
   resources :clientes
   resources :usuarios

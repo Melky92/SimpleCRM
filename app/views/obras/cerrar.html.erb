@@ -1,0 +1,99 @@
+<h1>Cerrar Obra</h1>
+
+<%= form_with(model: @obra, local: true) do |form| %>
+  <% if @obra.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@obra.errors.count, "error") %> evitó que esta obra sea guardada:</h2>
+
+      <ul>
+      <% @obra.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <strong>Nombre encargado:</strong>
+    <%= @obra.nombre_encargado %>
+  </p>
+
+  <p>
+    <strong>Teléfono encargado:</strong>
+    <%= @obra.telefono_encargado %>
+  </p>
+
+  <p>
+    <strong>Nombre contratista:</strong>
+    <%= @obra.nombre_contratista %>
+  </p>
+
+  <p>
+    <strong>Teléfono contratista:</strong>
+    <%= @obra.telefono_contratista %>
+  </p>
+
+  <p>
+    <strong>Nombre propietario:</strong>
+    <%= @obra.nombre_propietario %>
+  </p>
+
+  <p>
+    <strong>Teléfono propietario:</strong>
+    <%= @obra.telefono_propietario %>
+  </p>
+
+  <p>
+    <strong>Superficie aproximada:</strong>
+    <%= @obra.superficie_aproximada %>
+  </p>
+
+  <div class="field">
+    <%= form.label :ganado %>
+    <%= form.check_box :ganado %>
+  </div>
+
+  <div class="field">
+    <%= form.label :adjudicado %>
+    <%= form.text_field :adjudicado %>
+  </div>
+
+  <div class="field">
+    <%= form.label :motivo %>
+    <%= form.text_field :motivo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comentarios %>
+    <%= form.text_area :comentarios %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contrato %>
+    <%= form.text_field :contrato %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha_cierre %>
+    <%= form.datetime_select :fecha_cierre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cliente_id %>
+    <!-- %= form.text_field :cliente_id % -->
+    <%= form.select :cliente_id, options_from_collection_for_select(Cliente.all, :id, :nombre, @obra.cliente_id) , :include_blank => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :usuario_id %>
+    <!-- %= form.text_field :usuario_id % -->
+    <%= form.select :usuario_id, options_from_collection_for_select(Usuario.all, :id, :nombre_completo, @obra.usuario_id) , :include_blank => true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+
+<%= link_to 'Mostrar', @obra %> |

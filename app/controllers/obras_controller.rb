@@ -1,6 +1,6 @@
 class ObrasController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :set_obra, only: [:show, :edit, :update, :destroy]
+  before_action :set_obra, only: [:show, :edit, :update, :destroy, :cerrar]
 
   # GET /obras
   # GET /obras.json
@@ -28,7 +28,7 @@ class ObrasController < ApplicationController
   end
 
   def obras_nuevas
-    @obras = Obra.all.order(:created_at).last(10).reverse
+    @obras = Obra.where(ganado: false).where("length(motivo) = 0").order(:created_at).last(20).reverse
     render :index
   end
 
@@ -52,7 +52,7 @@ class ObrasController < ApplicationController
 
   # GET /obras/mapa/nuevas
   def mapa_nuevas
-    @obras = Obra.all.order(:created_at).last(10)
+    @obras = Obra.where(ganado: false).where("length(motivo) = 0").order(:created_at).last(20)
     render :map
   end
 
@@ -86,6 +86,10 @@ class ObrasController < ApplicationController
 
   # GET /obras/1/edit
   def edit
+  end
+
+  # GET /obras/1/cerrar
+  def cerrar
   end
 
   # POST /obras
