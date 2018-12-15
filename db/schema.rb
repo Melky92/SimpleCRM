@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_14_002219) do
+ActiveRecord::Schema.define(version: 2018_12_15_051340) do
 
   create_table "clientes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nombre"
@@ -52,7 +52,9 @@ ActiveRecord::Schema.define(version: 2018_12_14_002219) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "usuario_id"
+    t.bigint "reportado_por"
     t.index ["cliente_id"], name: "index_obras_on_cliente_id"
+    t.index ["reportado_por"], name: "fk_rails_4c73fb8f9d"
     t.index ["usuario_id"], name: "index_obras_on_usuario_id"
   end
 
@@ -76,5 +78,6 @@ ActiveRecord::Schema.define(version: 2018_12_14_002219) do
 
   add_foreign_key "obras", "clientes"
   add_foreign_key "obras", "usuarios"
+  add_foreign_key "obras", "usuarios", column: "reportado_por"
   add_foreign_key "usuarios", "tipo_usuarios"
 end
