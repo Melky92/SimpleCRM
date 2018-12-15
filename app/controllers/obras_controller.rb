@@ -28,7 +28,7 @@ class ObrasController < ApplicationController
   end
 
   def obras_nuevas
-    @obras = Obra.where(ganado: false).where("length(motivo) = 0").order(:created_at).last(20).reverse
+    @obras = Obra.where("ganado = false OR ganado IS NULL").where("motivo IS NULL OR length(motivo) = 0").order(:created_at).last(20).reverse
     render :index
   end
 
@@ -52,7 +52,7 @@ class ObrasController < ApplicationController
 
   # GET /obras/mapa/nuevas
   def mapa_nuevas
-    @obras = Obra.where(ganado: false).where("length(motivo) = 0").order(:created_at).last(20)
+    @obras = Obra.where("ganado = false OR ganado IS NULL").where("motivo IS NULL OR length(motivo) = 0").order(:created_at).last(20)
     render :map
   end
 
