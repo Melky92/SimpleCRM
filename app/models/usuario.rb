@@ -3,6 +3,6 @@ class Usuario < ApplicationRecord
   has_many :obra
   validates :nombre_de_usuario, uniqueness: { message: "ya existe" }
   def nombre_completo
-    "#{nombres} #{apellidos}"
+    "#{nombres} #{apellidos} (#{nombre_de_usuario})"
   end
 end
