@@ -20,7 +20,7 @@
     <% if @obras then %>
       <% @obras.each do |obra| %>
         <% if obra.latitud && obra.longitud then %>
-          var marker = new google.maps.Marker({
+          var marker<%= obra.id %> = new google.maps.Marker({
               position: {
                 lat: <%= obra.latitud %>, 
                 lng: <%= obra.longitud %>
@@ -30,8 +30,8 @@
               title: "<%= if obra.usuario then obra.usuario.nombre_completo else 'Sin Usuario' end %>",
               icon: "/icono/" + <%= if obra.usuario then obra.usuario.id else 0 end %>
           });
-          google.maps.event.addListener(marker, 'click', function() {
-            window.location.href = marker.url;
+          google.maps.event.addListener(marker<%= obra.id %>, 'click', function() {
+            window.location.href = marker<%= obra.id %>.url;
             return false;
           });
         <% end %>
