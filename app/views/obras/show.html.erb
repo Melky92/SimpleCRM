@@ -151,6 +151,11 @@
 </p>
 
 <p>
+  <strong>Reportado por:</strong>
+  <%= if @obra.reportado_por then @obra.reportado_por.nombre_completo else "---" end %>
+</p>
+
+<p>
   <% if @obra.foto && @obra.foto.length > 4 then %>
     <a href= <%= "/ver_imagen/" + @obra.foto %> >Ver Foto</a>
   <% end %>
