@@ -25,7 +25,7 @@ end
 
 <!--%= "#{mostrar_ganadas}" %-->
 
-<% campos = ["Id","Encargado","Contratista","Propietario"] %>
+<% campos = ["Id","Encargado","Contratista","Propietario","Vendedor"] %>
 
 <table id="misObras">
   <thead>
@@ -98,8 +98,6 @@ end
       <th>Contrato</th>
       <th>Fecha cierre</th>
       -->
-
-      <th>Vendedor</th>
       <th>Cliente</th>
       <% if !mostrar_perdidas && !mostrar_ganadas then %>
         <th colspan="4"></th>
@@ -128,6 +126,9 @@ end
           <br>
           <%= obra.telefono_propietario %>
         </td>
+
+        <td><%= if obra.usuario then obra.usuario.nombre_completo else "---" end  %></td>
+
         <td><%= obra.comentarios %></td>
         
         <% 
@@ -184,7 +185,6 @@ end
         <td><%= obra.contrato %></td>
         <td><%= obra.fecha_cierre %></td>
         -->
-        <td><%= if obra.usuario then obra.usuario.nombre_completo else "---" end  %></td>
         <td><%= if obra.cliente then obra.cliente.nombre else "---" end %></td>
         <% if !mostrar_perdidas && !mostrar_ganadas then %>
           <td><%= link_to 'Cerrar', "/obras/" + obra.id.to_s + "/cerrar/" %></td>
